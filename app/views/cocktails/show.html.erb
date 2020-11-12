@@ -1,0 +1,17 @@
+<h1><%=  @cocktail.name%> </h1>
+
+<p>Recipe:</p>
+
+<ul class="list-group">
+  <% @cocktail.doses.each do |dose| %>
+    <li class="list-group-item"> <%= dose.description %> of <%= dose.ingredient.name %> </li>
+  <% end %>
+</ul>
+
+
+<div>
+<%= link_to "add ingredients", new_cocktail_dose_path(@cocktail) %> ** || **
+<%= link_to "Not a good one!", cocktails_path,
+    method: :delete,
+    data: {:confirm => "are you sure ?? " }  %>
+</div>

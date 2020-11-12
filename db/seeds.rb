@@ -9,3 +9,12 @@
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
+
+
+require 'json'
+
+filepath = 'beers.json'
+
+serialized_beers = File.read(filepath)
+
+beers = JSON.parse(serialized_beers)

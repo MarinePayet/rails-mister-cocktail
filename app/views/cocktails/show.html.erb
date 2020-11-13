@@ -5,14 +5,19 @@
 <ul class="list-group">
   <% @cocktail.doses.each_with_index do |dose, index| %>
     <li class="list-group-item"> <%= index +1 %>. <%= dose.description %> of <%= dose.ingredient.name %> </li>
+       <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+       <i class="fa fa-trash destroy_dose"></i>
+        <% end %>
   <% end %>
 </ul>
 
 
 <div>
   <%= link_to "add ingredients", new_cocktail_dose_path(@cocktail) %> ** || **
-  <%= link_to "Not a good one!", cocktails_path,
+  <%= link_to "Not a good one!", cocktail_path(@cocktail),
       method: :delete,
       data: {:confirm => "are you sure ?? " }  %> ** || **
   <%= link_to "Back", cocktails_path %>
 </div>
+
+

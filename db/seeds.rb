@@ -12,18 +12,18 @@ require 'faker'
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
+
 puts "ok pour les 3"
-data = open("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list").read
-data_ok = JSON.parse(data)
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredients_serialized = open(url).read
+ingredient = JSON.parse(ingredients_serialized)
 
 
-data_ok["drinks"].each do |data|
-  Ingredient.create(name: data["strIngredient1"])
+ingredient['drinks'].each do |row|
+  Ingredient.create(name: row['strIngredient1'])
 end
 
-
-
 20.times do
-Cocktail.create(name: Faker::Food.fruits)
+  Cocktail.create(name: Faker::Food.fruits)
 end
 puts "finiii"

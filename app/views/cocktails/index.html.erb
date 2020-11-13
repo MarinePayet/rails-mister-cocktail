@@ -1,28 +1,20 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dk85eoleo/image/upload/v1605282254/6u56vs9h4j2z5acdwzy9ip5jxqnz.jpg);">
   <div class="container">
     <h1>Cocktail List</h1>
     <p>Choose your cocktail.</p>
+    <%= link_to "Add a New One" , new_cocktail_path, class:"btn-add"  %>
   </div>
 </div>
 
 
 
-<h1>Cocktails List</h1>
-
-
-
-<div class="card" style="width: 18rem;">
+<div class="card container d-flex justify-content-between" style="width: 18rem;">
   <% @cocktails.each_with_index do |cocktail, index| %>
-    <img src="https://picsum.photos/200" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"> <%= cocktail.name  %>  </h5>
+    <img src="https://picsum.photos/200"  alt="...">
+    <div class=" card card-body">
+      <h5 class="card-title"> <%= index + 1  %> ~ <%= cocktail.name  %>  </h5>
       <div class="btn "> <%= link_to "Recette" , cocktail_path(cocktail)%>  </div>
     </div>
   <% end %>
 </div>
-
- <%= link_to "Add a New One" , new_cocktail_path, class:"btn-add"  %>
-
-<%= cl_image_tag("https://res.cloudinary.com/dk85eoleo/image/upload/v1605267576/ombsz57oisqje40pmglv.jpg",
-      width: 400, height: 300, crop: :fill) %>

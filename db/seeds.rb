@@ -18,10 +18,10 @@ ingredient = JSON.parse(ingredients_serialized)
 
 
 ingredient['drinks'].each do |row|
-  Ingredient.create!(name: row['strIngredient1'])
-end
+   Ingredient.create!(name: row['strIngredient1'])
+ end
 
-10.times do
-  Cocktail.create!(name: Faker::Food.fruits)
-end
-puts "finiii"
+# 10.times do
+#   Cocktail.create!(name: Faker::Food.fruits)
+# end
+# puts "finiii"
